@@ -33,6 +33,20 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
+    - name: Clean Runner Cache
+      run: |
+        # 删除诊断日志（根据错误路径定位）
+        sudo rm -rf /home/runner/actions-runner/cached/_diag/*
+    
+        # 清理Docker无用资源（如果使用Docker）
+        docker system prune -f 2>/dev/null || true
+    
+        # 清理APT缓存（Ubuntu环境）
+        sudo apt-get clean -y
+    
+        # 检查磁盘空间（确认效果）
+        df -h
+    
     - name: Checkout
       uses: actions/checkout@main
 
