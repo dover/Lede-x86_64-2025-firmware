@@ -47,15 +47,6 @@ jobs:
         # 检查磁盘空间（确认效果）
         df -h
     
-    - name: Diagnose Disk Usage
-      run: |
-        # 查看整体磁盘使用
-        df -h
-    
-        # 深度分析大文件/目录
-        sudo du -sh /home/runner/* 2>/dev/null | sort -rh
-        sudo du -sh /var/* 2>/dev/null | sort -rh
-    
     - name: Checkout
       uses: actions/checkout@main
 
