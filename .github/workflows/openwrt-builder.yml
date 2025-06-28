@@ -81,8 +81,8 @@ jobs:
         df -hT
         echo "=============================================================================="
 
-   # - name: Delete huge unnecessary tools folder
-   #   run: rm -rf /opt/hostedtoolcache
+    - name: Delete huge unnecessary tools folder
+      run: rm -rf /opt/hostedtoolcache
     
     - name: Checkout
       uses: actions/checkout@main
